@@ -27,4 +27,4 @@ const AuthSchema = new mongoose.Schema({
     versionKey:false
 })
 
-export default mongoose.model('User',AuthSchema)
+export default mongoose.model('user',AuthSchema)

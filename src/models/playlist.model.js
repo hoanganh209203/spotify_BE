@@ -43,4 +43,4 @@ const musicSchema = new mongoose.Schema({
     timestamps:true,
     versionKey:false
 })
-export default mongoose.model('Playlist',musicSchema)
+export default mongoose.model('playlist',musicSchema)
