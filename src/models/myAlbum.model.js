@@ -9,7 +9,7 @@ const myAlbumSchema = new mongoose.Schema({
         {
             musiceId:{
                 type:mongoose.Schema.Types.ObjectId,
-                ref:'playlist'
+                ref:'track'
             }
         }
     ]
