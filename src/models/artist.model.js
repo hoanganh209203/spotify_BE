@@ -1,46 +1,31 @@
 import mongoose from "mongoose";
 
 const artistSchema = new mongoose.Schema({
-    external_urls: {
-        spotify: {
-            type: String
-        }
+    name: {
+        type: String,
     },
-    followers:{
-        href:{
+    followers: {
+        href: {
             type: String
         },
-        total:{
+        total: {
             type: Number
         }
     },
-    genres:[
-       { 
-        type: mongoose.Schema.Types.ObjectId,
-        ref:"genres"
-    }
-    ],
-    images: [
+    genres: [
         {
-            url:{
-                type: String,
-            }
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "genres"
         }
     ],
-    name:{
+    images: {
         type: String,
     },
-    popularity:{
+    popularity: {
         type: Number,
-    },
-    types:{
-        type: String,
-    },
-    uri:{
-        type: String,
     }
-},{
-    timestamps:true,
-    versionKey:false
+}, {
+    timestamps: true,
+    versionKey: false
 })
-export default mongoose.model('artist',artistSchema)
+export default mongoose.model('artist', artistSchema)

@@ -1,4 +1,5 @@
 import artistModel from "../models/artist.model.js";
+import genresModel from "../models/genres.model.js";
 
 
 export const getArtist = async(req,res) =>{
@@ -37,8 +38,9 @@ export const getArtistById = async(req,res) =>{
     }
 }
 
-export const createArtist= async(req,res) =>{
+export const createArtist = async(req,res) =>{
     try {
+      console.log(req.body);
       const data = await artistModel.create(req.body)
       console.log(data);
       if(!data){
@@ -46,6 +48,16 @@ export const createArtist= async(req,res) =>{
             message:"No artist"
         })
       }
+      const updateGenres = await genresModel.findByIdAndUpdate(data.genres, {
+        $addToSet: {
+           artist: data._id
+        }
+    })
+    if (!updateGenres) {
+        return res.status(404).json({
+            message: "Update genres not found"
+        })
+    }
       return res.status(200).json({
         message:"Thêm thành công",
         artist: data

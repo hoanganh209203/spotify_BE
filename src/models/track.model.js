@@ -1,33 +1,32 @@
 import mongoose from "mongoose";
 
 const trackSchema = new mongoose.Schema({
-    albumId:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"album"
+    artists: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "artist"
     },
-    artists:[
-        {
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"artist"
-        }
-    ],
-    external_urls:{
-        spotify:{
-            type:String,
-        }
+    genres:[ {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "genres"
+}],
+    spotify: {
+        type: String,
     },
-    href:{
-        type:String,
+    //link nhạc
+    image: {
+        type: String,
     },
-    name:{
-        type:String,
+    //Link ảnh
+    name: {
+        type: String,
     },
-    popularity:{
-        type:Number
+    popularity: {
+        type: Number
     },
-    track_number:{
-        type:Number
-    }
+    //phổ biến
+}, {
+    timestamps: true,
+    versionKey: false
 })
 
-export default mongoose.model('track',trackSchema)
+export default mongoose.model('track', trackSchema)
