@@ -5,6 +5,8 @@ import trackModel from "../models/track.model.js"
 export const getTrack = async(req,res) =>{
     try {
       const data = await trackModel.find()
+      .populate('artists')
+      .populate('genres')
     //   console.log(data);
       if(!data){
         return res.status(404).json({
@@ -24,6 +26,8 @@ export const getTrackId = async(req,res) =>{
         const id = req.params.id
         // console.log(id);
       const data = await trackModel.findById(id)
+      .populate('artists')
+      .populate('genres') 
       console.log(data);
       if(!data){
         return res.status(404).json({
