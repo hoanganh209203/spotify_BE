@@ -16,18 +16,18 @@ const genresSchema = new mongoose.Schema({
             type: String,
         }
     },
-    tracks: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "track"
-        }
-    ],
-    artist: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "artist"
-        }
-    ]
+    // tracks: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "track"
+    //     }
+    // ],
+    // artist: [
+    //     {
+    //         type: mongoose.Schema.Types.ObjectId,
+    //         ref: "artist"
+    //     }
+    // ]
 }, {
     timestamps: true,
     versionKey: false

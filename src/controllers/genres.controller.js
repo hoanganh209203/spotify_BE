@@ -4,9 +4,9 @@ import genresModel from "../models/genres.model.js";
 export const getGenres = async(req,res) =>{
     try {
       const data = await genresModel.find()
-      .populate('tracks')
       .populate('artist')
-    //   console.log(data);
+      .populate('tracks')
+      //   console.log(data);
       if(!data){
         return res.status(404).json({
             message:"Not found"

@@ -4,8 +4,8 @@ import genresModel from "../models/genres.model.js";
 
 export const getArtist = async(req,res) =>{
     try {
-      const data = await artistModel.find().populate('genres')
-      console.log(data);
+      const data = await artistModel.find()
+      // console.log(data);
       if(!data){
         return res.status(400).json({
             message:"No artist"

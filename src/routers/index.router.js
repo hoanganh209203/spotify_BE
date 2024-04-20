@@ -1,9 +1,9 @@
 import routerPlaylist from './playlist.router.js';
 import routerGenres from './genres.router.js';
 import routerAuth from './auth.router.js';
-import routerAlbum from './myalbum.router.js';
 import routerArtist from './artist.router.js';
 import routerTrack from './track.router.js';
+import routerAlbum from './album.router.js';
 
 const Router = (app) =>{
     app.use('/playlist',routerPlaylist)
