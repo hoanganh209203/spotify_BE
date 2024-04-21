@@ -12,12 +12,10 @@ const artistSchema = new mongoose.Schema({
             type: Number
         }
     },
-    genres: [
-        {
+    genres:[ {
             type: mongoose.Schema.Types.ObjectId,
             ref: "genres"
-        }
-    ],
+        }],
     images: {
         type: String,
     },

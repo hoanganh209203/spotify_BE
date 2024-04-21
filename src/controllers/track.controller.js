@@ -6,7 +6,7 @@ export const getTrack = async(req,res) =>{
     try {
       const data = await trackModel.find()
       .populate('artists')
-      .populate('genres')
+      .populate('genres') 
     //   console.log(data);
       if(!data){
         return res.status(404).json({
@@ -52,16 +52,27 @@ export const createTrack= async(req,res) =>{
         })
       }
 
-      const updateGenres = await genresModel.findByIdAndUpdate(data.genres, {
-        $addToSet: {
-            tracks: data._id
-        }
-    })
-    if (!updateGenres) {
-        return res.status(404).json({
-            message: "Update genres not found"
+    //   const updateGenres = await genresModel.findByIdAndUpdate(data.genres, {
+    //     $addToSet: {
+    //         tracks: data._id
+    //     }
+    // })
+    // if (!updateGenres) {
+    //     return res.status(404).json({
+    //         message: "Update genres not found"
+    //     })
+    // }
+
+      for(const _id of data.genres){
+        console.log(_id);
+        const doc = genresModel.findByIdAndUpdate(_id,{
+          $addToSet: {
+                    tracks:_id
+                }
+
         })
-    }
+      }
+
 
       return res.status(200).json(data)
     } catch (error) {
