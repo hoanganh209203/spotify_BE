@@ -2,7 +2,9 @@ import albumModel from "../models/album.model.js"
 
 export const getAlbum = async(req,res) =>{
     try {
-      const data = await albumModel.find().populate('tracks')
+      const data = await albumModel.find()
+      .populate('tracks')
+      .populate('artists')
     //   console.log(data);
       if(!data){
         return res.status(404).json({
@@ -22,7 +24,8 @@ export const getAlbumId = async(req,res) =>{
         const id = req.params.id
         // console.log(id);
       const data = await albumModel.findById(id).populate('tracks')
-     
+      .populate('tracks')
+      .populate('artists')
       console.log(data);
       if(!data){
         return res.status(404).json({

@@ -1,12 +1,12 @@
 import mongoose from 'mongoose'
 
 const AlbumSchema = new mongoose.Schema({
-  
+
     total_tracks: {
         type: Number,
         required: true
     },//số lượng track
-    tracks:[
+    tracks: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'track'
@@ -20,15 +20,15 @@ const AlbumSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    artists:{
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'artists'
-            }
-
+    artists:
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'artist'
+    }
     //nghệ sĩ
 }, {
     timestamps: true,
     versionKey: false
 })
 
-export default mongoose.model('album',AlbumSchema)
+export default mongoose.model('album', AlbumSchema)

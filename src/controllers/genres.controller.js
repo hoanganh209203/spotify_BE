@@ -4,8 +4,7 @@ import genresModel from "../models/genres.model.js";
 export const getGenres = async(req,res) =>{
     try {
       const data = await genresModel.find()
-      .populate('artist')
-      .populate('tracks')
+      
       //   console.log(data);
       if(!data){
         return res.status(404).json({
@@ -25,8 +24,7 @@ export const getGenresId = async(req,res) =>{
         const id = req.params.id
         // console.log(id);
       const data = await genresModel.findById(id)
-      .populate('artist')
-      .populate('tracks')
+    
       console.log(data);
       if(!data){
         return res.status(404).json({
