@@ -20,6 +20,9 @@ const trackSchema = new mongoose.Schema({
     name: {
         type: String,
     },
+    color_bg:{
+        type: String,
+    },
     popularity: {
         type: Number
     },
