@@ -16,6 +16,10 @@ const artistSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "genres"
         }],
+    tracks:[ {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "track"
+        }],
     images: {
         type: String,
     },

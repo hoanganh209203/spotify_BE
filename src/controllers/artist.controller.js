@@ -5,6 +5,7 @@ import genresModel from "../models/genres.model.js";
 export const getArtist = async(req,res) =>{
     try {
       const data = await artistModel.find()
+      .populate('tracks')
       // console.log(data);
       if(!data){
         return res.status(400).json({
@@ -23,8 +24,8 @@ export const getArtistById = async(req,res) =>{
     try {
         const id = req.params.id
         console.log(id);
-      const data = await artistModel.findById(id).populate('genres')
-      console.log(data);
+      const data = await artistModel.findById(id).populate('tracks')
+            console.log(data);
       if(!data){
         return res.status(400).json({
             message:"No artist"
@@ -58,6 +59,17 @@ export const createArtist = async(req,res) =>{
             message: "Update genres not found"
         })
     }
+    const updateTracks = await genresModel.findByIdAndUpdate(data.tracks, {
+      $addToSet: {
+         artist: data._id
+      }
+  })
+  if (!updateTracks) {
+      return res.status(404).json({
+          message: "Update genres not found"
+      })
+  }
+
       return res.status(200).json({
         message:"Thêm thành công",
         artist: data
@@ -79,7 +91,7 @@ export const updateArtist = async(req,res) =>{
         })
       }
       return res.status(200).json({
-        message:"Thêm thành công",
+        message:"Update thành công",
         artist: data
       })
     } catch (error) {
