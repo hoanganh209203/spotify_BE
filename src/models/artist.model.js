@@ -20,10 +20,10 @@ const artistSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "track"
         }],
-    album:{
+    album:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: "album"
-    },
+    }],
     images: {
         type: String,
     },
