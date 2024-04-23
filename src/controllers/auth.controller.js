@@ -14,11 +14,16 @@ export const signUp = async(req, res) =>{
         }
         const passwordHashed = await bcrypt.hash(datas.password,10)
         datas.password = passwordHashed
+
+        const token = jwt.sign({user:datas.name,username:datas.email},"123456",{expiresIn:"1h"}) 
+        console.log(token);
+
         const user = await authModel.create({...req.body})
         user.password = undefined
         return res.status(200).json({
             message:"Dang ki thanh cong",
-            users:user
+            users:user,
+            token
         })
     } catch (error) {
         return res.status(500).json({
