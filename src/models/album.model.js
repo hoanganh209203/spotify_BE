@@ -24,8 +24,11 @@ const AlbumSchema = new mongoose.Schema({
     {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'artist'
-    }
+    },
     //nghệ sĩ
+    color_bg:{
+        type: String,
+    }
 }, {
     timestamps: true,
     versionKey: false
