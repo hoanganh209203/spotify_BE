@@ -24,7 +24,9 @@ export const getArtistById = async(req,res) =>{
     try {
         const id = req.params.id
         console.log(id);
-      const data = await artistModel.findById(id).populate('tracks')
+      const data = await artistModel.findById(id)
+      .populate('tracks')
+      .populate('album')
             console.log(data);
       if(!data){
         return res.status(400).json({
@@ -69,6 +71,16 @@ export const createArtist = async(req,res) =>{
           message: "Update genres not found"
       })
   }
+  const updateAlbum = await genresModel.findByIdAndUpdate(data.album, {
+    $addToSet: {
+       artist: data._id
+    }
+})
+if (!updateAlbum) {
+    return res.status(404).json({
+        message: "Update genres not found"
+    })
+}
 
       return res.status(200).json({
         message:"Thêm thành công",
