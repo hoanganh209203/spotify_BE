@@ -33,7 +33,7 @@ const musicSchema = new mongoose.Schema({
     popularity:{
         type: Number,
     },
-    types:{
+    type:{
         type: String,
     },
     uri:{

@@ -27,6 +27,9 @@ const trackSchema = new mongoose.Schema({
         type: Number
     },
     //phổ biến
+    type:{
+        type: String,
+    }
 }, {
     timestamps: true,
     versionKey: false

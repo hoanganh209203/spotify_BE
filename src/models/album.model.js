@@ -28,6 +28,9 @@ const AlbumSchema = new mongoose.Schema({
     //nghệ sĩ
     color_bg:{
         type: String,
+    },
+    type:{
+        type: String,
     }
 }, {
     timestamps: true,

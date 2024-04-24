@@ -33,6 +33,9 @@ const artistSchema = new mongoose.Schema({
    
     popularity: {
         type: Number,
+    },
+    type:{
+        type: String,
     }
 }, {
     timestamps: true,
