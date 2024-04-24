@@ -30,11 +30,13 @@ const artistSchema = new mongoose.Schema({
     banner: {
         type: String,
     },
-   
     popularity: {
         type: Number,
     },
     type:{
+        type: String,
+    },
+    slug:{
         type: String,
     }
 }, {

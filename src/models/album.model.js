@@ -31,6 +31,9 @@ const AlbumSchema = new mongoose.Schema({
     },
     type:{
         type: String,
+    },
+    slug:{
+        type: String,
     }
 }, {
     timestamps: true,

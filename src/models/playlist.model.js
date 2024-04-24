@@ -36,7 +36,7 @@ const musicSchema = new mongoose.Schema({
     type:{
         type: String,
     },
-    uri:{
+    slug:{
         type: String,
     }
 },{

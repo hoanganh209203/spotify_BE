@@ -29,6 +29,9 @@ const trackSchema = new mongoose.Schema({
     //phổ biến
     type:{
         type: String,
+    },
+    slug:{
+        type: String,
     }
 }, {
     timestamps: true,
