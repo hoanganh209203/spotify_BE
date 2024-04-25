@@ -5,7 +5,7 @@ const routerTrack = express.Router();
 
 routerTrack.get('/',getTrack)
 routerTrack.post('/',createTrack)
-routerTrack.get('/:id',getTrackId)
+routerTrack.get('/:slug',getTrackId)
 routerTrack.put('/:id',updateTrack)
 routerTrack.delete('/:id',removeTrack)
 

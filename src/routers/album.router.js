@@ -4,7 +4,7 @@ import { createAlbum, getAlbum, getAlbumId, removeAlbum, updateAlbum } from '../
 const routerAlbum = express.Router();
 
 routerAlbum.get('/',getAlbum)
-routerAlbum.get('/:id',getAlbumId)
+routerAlbum.get('/:slug',getAlbumId)
 routerAlbum.post('/',createAlbum)
 routerAlbum.put('/:id',updateAlbum)
 routerAlbum.delete('/:id',removeAlbum)

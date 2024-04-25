@@ -4,7 +4,7 @@ import { createArtist, getArtist, getArtistById, removeArtist, updateArtist } fr
 const routerArtist = express.Router()
 
 routerArtist.get('/',getArtist)
-routerArtist.get('/:id',getArtistById),
+routerArtist.get('/:slug',getArtistById),
 routerArtist.post('/',createArtist)
 routerArtist.put('/:id',updateArtist)
 routerArtist.delete('/:id',removeArtist)
