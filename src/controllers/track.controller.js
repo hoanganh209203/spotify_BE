@@ -23,9 +23,8 @@ export const getTrack = async(req,res) =>{
 
 export const getTrackId = async(req,res) =>{
     try {
-        const id = req.params.id
-        // console.log(id);
-      const data = await trackModel.findById(id)
+        const slug = req.params.slug
+      const data = await trackModel.findOne({slug: slug})
       .populate('artists')
       console.log(data);
       if(!data){

@@ -23,9 +23,8 @@ export const getArtist = async(req,res) =>{
 
 export const getArtistById = async(req,res) =>{
     try {
-        const id = req.params.id
-        console.log(id);
-      const data = await artistModel.findById(id)
+      const slug = req.params.slug
+      const data = await artistModel.findOne({slug: slug})
       .populate('tracks')
       .populate('album')
             console.log(data);

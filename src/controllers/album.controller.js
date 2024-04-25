@@ -22,9 +22,9 @@ export const getAlbum = async(req,res) =>{
 
 export const getAlbumId = async(req,res) =>{
     try {
-        const id = req.params.id
-        // console.log(id);
-      const data = await albumModel.findById(id).populate('tracks')
+        const slug = req.params.slug
+      const data = await albumModel.findOne({slug: slug})
+      .populate('tracks')
       .populate('tracks')
       .populate('artists')
       console.log(data);
