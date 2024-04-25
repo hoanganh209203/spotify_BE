@@ -2,7 +2,8 @@ import albumModel from "../models/album.model.js"
 
 export const getAlbum = async(req,res) =>{
     try {
-      const data = await albumModel.find()
+      const limit = req.query.limit;
+      const data = await albumModel.find().limit(limit)
       .populate('tracks')
       .populate('artists')
     //   console.log(data);

@@ -4,7 +4,8 @@ import trackModel from "../models/track.model.js"
 
 export const getTrack = async(req,res) =>{
     try {
-      const data = await trackModel.find()
+      const limit = req.query.limit;
+      const data = await trackModel.find().limit(limit)
       .populate('artists')
     //   console.log(data);
       if(!data){
